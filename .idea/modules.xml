@@ -3,6 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/SafeMoney.iml" filepath="$PROJECT_DIR$/.idea/SafeMoney.iml" />
+<<<<<<< HEAD
+=======
+      <module fileurl="file://$PROJECT_DIR$/SafeMoney/safemoney/safemoney.iml" filepath="$PROJECT_DIR$/SafeMoney/safemoney/safemoney.iml" />
+>>>>>>> 2ac536d (Merge pull request #13 from ABJVfef/2-enums-entidades-e-repositórios)
     </modules>
   </component>
 </project>

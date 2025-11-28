@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
+<<<<<<< HEAD
     <mapping directory="" vcs="Git" />
+=======
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SafeMoney" vcs="Git" />
+>>>>>>> 2ac536d (Merge pull request #13 from ABJVfef/2-enums-entidades-e-repositórios)
   </component>
 </project>
