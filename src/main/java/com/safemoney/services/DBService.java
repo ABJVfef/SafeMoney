@@ -1,16 +1,30 @@
 package com.safemoney.services;
 
-import com.safemoney.domains.*;
-import com.safemoney.repositories.*;
+import com.safemoney.domains.Usuario;
+import com.safemoney.domains.CentroCusto;
+import com.safemoney.domains.Entidade;
+import com.safemoney.domains.ContaBancaria;
+import com.safemoney.domains.CartaoCredito;
+
+import com.safemoney.repositories.UsuarioRepository;
+import com.safemoney.repositories.ContaBancariaRepository;
+import com.safemoney.repositories.CentroCustoRepository;
+import com.safemoney.repositories.EntidadeRepository;
+import com.safemoney.repositories.CartaoCreditoRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Arrays;
 
 @Service
-public class DBService {
+@Profile({"dev", "test"}) // roda automaticamente em dev e test
+public class DBService implements CommandLineRunner {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -23,7 +37,15 @@ public class DBService {
     @Autowired
     private CartaoCreditoRepository cartaoCreditoRepository;
 
+    @Override
+    @Transactional
+    public void run(String... args) throws Exception {
+        initDB();
+    }
+
+    @Transactional
     public void initDB() {
+
 
         Usuario user1 = new Usuario(null, "Usuário Teste", "teste@email.com");
         usuarioRepository.save(user1);
@@ -78,5 +100,7 @@ public class DBService {
         cartao1.setAtivo(true);
 
         cartaoCreditoRepository.save(cartao1);
+
+        System.out.println("🚀 DBService: dados iniciais inseridos (perfil dev/test).");
     }
 }
