@@ -1,16 +1,8 @@
 package com.safemoney.services;
 
-import com.safemoney.domains.Usuario;
-import com.safemoney.domains.CentroCusto;
-import com.safemoney.domains.Entidade;
-import com.safemoney.domains.ContaBancaria;
-import com.safemoney.domains.CartaoCredito;
+import com.safemoney.domains.*;
 
-import com.safemoney.repositories.UsuarioRepository;
-import com.safemoney.repositories.ContaBancariaRepository;
-import com.safemoney.repositories.CentroCustoRepository;
-import com.safemoney.repositories.EntidadeRepository;
-import com.safemoney.repositories.CartaoCreditoRepository;
+import com.safemoney.repositories.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -36,6 +28,8 @@ public class DBService implements CommandLineRunner {
     private EntidadeRepository entidadeRepository;
     @Autowired
     private CartaoCreditoRepository cartaoCreditoRepository;
+    @Autowired
+    private EnderecoRepository enderecoRepository;
 
     @Override
     @Transactional
@@ -100,6 +94,20 @@ public class DBService implements CommandLineRunner {
         cartao1.setAtivo(true);
 
         cartaoCreditoRepository.save(cartao1);
+
+        Endereco end1 = new Endereco();
+        end1.setRua("Tchurusbangos");
+        end1.setNumero("420");
+        end1.setCidade("Extrema");
+
+        Endereco end2 = new Endereco();
+        end2.setRua("Tchurusbagos");
+        end2.setNumero("666");
+        end2.setCidade("Ferpa");
+
+        enderecoRepository.save(end1);
+        enderecoRepository.save(end2);
+
 
         System.out.println("🚀 DBService: dados iniciais inseridos (perfil dev/test).");
     }
