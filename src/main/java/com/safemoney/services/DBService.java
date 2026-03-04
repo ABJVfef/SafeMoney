@@ -99,11 +99,13 @@ public class DBService implements CommandLineRunner {
         end1.setRua("Tchurusbangos");
         end1.setNumero("420");
         end1.setCidade("Extrema");
+        end1.setUsuario(user1);
 
         Endereco end2 = new Endereco();
         end2.setRua("Tchurusbagos");
         end2.setNumero("666");
         end2.setCidade("Ferpa");
+        end2.setUsuario(user1);
 
         enderecoRepository.save(end1);
         enderecoRepository.save(end2);
